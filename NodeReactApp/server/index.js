@@ -3,7 +3,7 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-app.get("/candidate", (req, res) => {
+app.get("/App", (req, res) => {
     res.json({ message: "Candidate data received" });
   });
   

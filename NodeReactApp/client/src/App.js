@@ -43,22 +43,53 @@ const ButtonStyle = {
   borderColor: "#DB6390",
   marginTop: "15px",
   };
-class Test extends React.Component {
-  render() {
+
+
+class Candidate extends React.Component {
+  
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      firstName: "",
+      lastName: "",
+      Email: "",
+      Descrption: ""
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.sendDataSomewhere = this.sendDataSomewhere.bind(this);
+}
+saveStateToLocalStorage = () => {
+  localStorage.setItem('state', JSON.stringify(this.state));
+}
+
+
+handleChange(event) {
+  this.setState({value: event.target.value});
+}
+
+handleSubmit(event) {
+  alert('A candidate submitted data:');
+  event.preventDefault();
+}
+
+  
+ render(){
     return (
       <div className="App" style={ContainerStyle}>
       <form style={FormStyle}>
         <div className="TextField">
-          <input type="text" id="firstName" style={TextFieldStyle} placeholder="First name" />
+          <input type="text" id="firstName" style={TextFieldStyle} value={this.state.firstName}placeholder="First name" />
         </div>
         <div className="TextField">
-          <input type="text" id="lastName" style={TextFieldStyle}placeholder="Last name" />
+          <input type="text" id="lastName" style={TextFieldStyle} value={this.state.lastName} placeholder="Last name" />
         </div>
         <div className="TextField">
-          <input type="email" id="Email" style={TextFieldStyle} placeholder="Email" />
+          <input type="email" id="Email" style={TextFieldStyle} value={this.state.Email}placeholder="Email" />
         </div>
         <div className="TextField">
-          <input type="text" id="Description" style={DescriptionStyle} placeholder="About you" />
+          <input type="text" id="Description" style={DescriptionStyle} value={this.state.Description} placeholder="About you" />
         </div>
         <div style={FileStyle}>
         <input type="file" id="img" accept=".pdf, .docx" ></input>
@@ -71,7 +102,7 @@ class Test extends React.Component {
       </form>
     </div>
     );
-  }
+    }
 }
 
-export default Test;
+export default Candidate;
