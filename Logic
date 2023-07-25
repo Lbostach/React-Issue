@@ -1,0 +1,2 @@
+For this problem, the solution I came up with is to drive a certain distance in a direction. In case we don't find the friend, we return to the starting point and drive double the distance in the opposite direction.
+For example, I will drive 1km to the right. If I don't find the friend, I will return to the starting point and drive 2km to the left. If I don't find him again, I will return to the starting point and drive 4km to the right. Repeat the process until I find the friend.
